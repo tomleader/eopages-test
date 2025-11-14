@@ -6,8 +6,7 @@ export function getEtagFromRequest(request): string {
 }
 
 export async function onRequestGet(context) {
-  const etag = getEtagFromRequest(context.request);
-  if (etag) {
+  if (Math.random() > 0.5) {
     return new Response(null, {
       status: 304,
       headers: {
@@ -23,8 +22,6 @@ export async function onRequestGet(context) {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'no-cache',
-      'ETag': '1234567890',
     }
-  }
-  );
+  });
 }
