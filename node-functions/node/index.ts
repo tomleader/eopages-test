@@ -5,6 +5,7 @@ export async function onRequestGet(context) {
   const etag = getEtagFromRequest(context.request);
   if (!etag) {
     return new Response(JSON.stringify({ test: 'ok' }), {
+      status: 200,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
