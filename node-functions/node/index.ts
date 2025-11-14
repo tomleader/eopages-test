@@ -1,4 +1,16 @@
-import { create200Response, getEtagFromRequest } from "./_common";
+import { getEtagFromRequest } from "./_common";
+
+
+export function create200Response(body: any): Response {
+  return new Response(JSON.stringify(body), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-cache',
+      'ETag': '1234567890',
+    },
+  });
+}
 
 
 export function create304Response(): Response {
