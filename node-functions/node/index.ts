@@ -7,7 +7,7 @@ export function getEtagFromRequest(request): string {
 
 export async function onRequestGet(context) {
   return new Response(JSON.stringify({ test: 'ok' }), {
-    status: 304,
+    status: 404,
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
