@@ -14,17 +14,14 @@ export function getEtagFromRequest(request): string {
 export async function onRequestGet(context) {
   const etag = getEtagFromRequest(context.request);
   if (etag) {
-    const res = new Response();
-    res.setStatus(304)
-    return res;
-    // return new Response(null, {
-    //   status: 304,
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Cache-Control': 'no-cache',
-    //   }
-    // });
+    return new Response(null, {
+      status: 304,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-cache',
+      }
+    });
   }
   return new Response(JSON.stringify({ test: 'ok' }), {
     status: 200,
