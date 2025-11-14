@@ -6,7 +6,7 @@ export function getEtagFromRequest(request): string {
 }
 
 export async function onRequestGet(context) {
-  return new Response(JSON.stringify({ test: 'ok' }), {
+  return new Response(null, {
     status: 304,
     headers: {
       'Content-Type': 'application/json',
